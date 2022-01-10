@@ -1,0 +1,69 @@
+node class
+segment class
+chain class
+
+how to exert forces???
+selecting outlines a node/segment
+how to reference and manage each node from
+
+
+controls:
+    hold r-click and not colliding with node/segment: wait until not holding and then create a node with a given mass proportional to the time held
+    l-click and colliding with node: select node
+    hold l-click and colliding with node: drag node around
+    l-click and colliding with a segment: select segment
+    hold r-click and colliding with a segment: same functionality as before but created in the segement
+    hold "+": assign a positive force to selected node. magnitude proportinal to time held
+    hold "-": assign a negative force to selected node. magnitude proportional to time held
+    toggle "m": set mode. from magnetism to
+    "Tab": if selecting a node, selects the next node; if current node is last, select the first node
+
+logic:
+    when creating a new node, add it to a node array. (subclassing node and list of nodes?)
+    when creating a node on a segment, we insert the node in between the segment vertices(between each node)
+    need to be able to detect when colliding with a segment or node
+    each node can have a mass and gravitational pull, attracting or repulsing
+
+node class:
+    // a point. can also have a mass and a force
+    sf::CircleShape shape
+    vector<float> pos
+    vector<float> acceleration //for when we apply forces to it
+    vector<float> velocity
+    float mass
+    float force
+    methods:
+        accelerate()
+        move()
+        recolour(bool selected)
+            //we determine if it is selected and what colour it is
+            //default colour is white, positive forced ones are nlue, repulsive red
+            //we add a black outline if selected
+
+segment class:
+    sf:RectangleShape shape
+    methods:
+        recolour(bool selected) //outlines a segment with the same rules as node::recolour()
+
+chain class:
+    //chain of nodes and segments
+    vector<node> nodes
+    vector<segment> segments
+    float highlighted_node_index
+    float highlighted_segment_index
+
+    methods:
+        draw_segment() //draws a segment from 1 node to the next
+        delete_segment() //deletes a segment
+        redraw() //kills all segments then repeatedly calls draw_segment() for all nodes
+
+        delete_node() //deletes a node and redraws
+        insert_node()
+
+        mouse_is_colliding_with_node() //detects if the mouse is touching a node
+        mouse_is_colliding_with_segment() //detects if the mouse is touching a segment
+        select_node()
+            // chooses which node is selected and then calls its recolour method
+        select_segment() //chooses which
+
+        change_magnitude() //changes the magnitude of the force for the selected node
