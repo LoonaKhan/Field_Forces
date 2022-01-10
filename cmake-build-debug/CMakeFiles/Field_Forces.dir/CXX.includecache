@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/loona/programming/Field_Forces/chain.h
+segment.h
+/home/loona/programming/Field_Forces/segment.h
+
+/home/loona/programming/Field_Forces/globvars.h
+
+/home/loona/programming/Field_Forces/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+globvars.h
+/home/loona/programming/Field_Forces/globvars.h
+chain.h
+/home/loona/programming/Field_Forces/chain.h
+
+/home/loona/programming/Field_Forces/node.h
+vector
+-
+SFML/Graphics.hpp
+-
+globvars.h
+/home/loona/programming/Field_Forces/globvars.h
+
+/home/loona/programming/Field_Forces/segment.h
+node.h
+/home/loona/programming/Field_Forces/node.h
+

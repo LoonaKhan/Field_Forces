@@ -9,6 +9,7 @@ node::node(vector<float> pos, float mass) {
     this->a = {0.0f, 0.0f};
     this->mass = mass;
     this->force = 0.0f;
+    this->colour = sf::Color::White;
 
     this->shape.setPosition(pos[0], pos[1]);
     this->shape.setRadius(std::max(mass, 2.0f));
@@ -43,9 +44,18 @@ void node::recolour(bool selected) {
      * Nodes are coloured white if the magnitude of their force is 0, blue if positive, red if negative
      * All nodes will have a black outline by default but the radius will be enabled only if it is selected.
      */
-    if (this->force>0) this->shape.setFillColor(sf::Color{3,161, 252});
-    else if (this->force<0) this->shape.setFillColor(sf::Color{214, 82, 49});
-    else this->shape.setFillColor(sf::Color::White);
+    if (this->force>0){
+        this->shape.setFillColor(sf::Color{3, 161, 252});
+        this->colour = sf::Color{3, 161, 252};
+    }
+    else if (this->force<0){
+        this->shape.setFillColor(sf::Color{214, 82, 49});
+        this->colour = sf::Color{214, 82, 49};
+    }
+    else{
+        this->shape.setFillColor(sf::Color::White);
+        this->colour = sf::Color::White;
+    }
 
     if (selected) this->shape.setOutlineThickness(0.0f);
     else this->shape.setOutlineThickness(5.0f);

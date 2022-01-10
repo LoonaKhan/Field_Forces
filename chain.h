@@ -4,35 +4,31 @@
 
 #ifndef FIELD_FORCES_CHAIN_H
 #define FIELD_FORCES_CHAIN_H
-#include <iostream>
-#include <vector>
-#include <SFML/Graphics.hpp>
-#include "node.h"
 #include "segment.h"
-#include "globvars.h"
 
 class chain {
 public:
     vector<node> nodes;
     vector<segment> segments;
-    float highlighted_node_index;
-    float hihglighted_segment_index;
+    int highlighted_node_index;
+    //float hihglighted_segment_index;
 
-    chain(node start, node end);
+    chain(node start);
     ~chain();
 
-    void draw_segment();
-    void delete_sedment();
+    segment draw_segment(node start, node end);
+    void delete_segment(int index);
     void redraw();
 
-    void delete_node();
-    void insert_node();
+    void delete_node(int index);
+    void insert_node(vector<float> pos, float mass, int index=1);
 
     bool mouse_is_colliding_with_node();
     bool mouse_is_colliding_with_segment();
-    float select_node();
-    float select_segment();
+    float select_node(int index);
+    //float select_segment();
     void change_magnitude();
+    void draw();
 
 };
 

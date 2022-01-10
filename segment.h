@@ -4,18 +4,15 @@
 
 #ifndef FIELD_FORCES_SEGMENT_H
 #define FIELD_FORCES_SEGMENT_H
-#include <iostream>
-#include <vector>
-#include <SFML/Graphics.hpp>
-#include "globvars.h"
+#include "node.h"
 using namespace std;
 
 class segment {
 public:
-    sf::RectangleShape shape;
-    segment(vector<float> start, vector<float> end, bool selected);
+    sf::Vertex vertices[4];
+    segment(node start, node end, bool selected=false);
     ~segment();
-    void recolour();
+    void recolour(bool selected=false);
 };
 
 

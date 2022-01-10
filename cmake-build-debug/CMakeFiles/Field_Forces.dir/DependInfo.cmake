@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/loona/programming/Field_Forces/chain.cpp" "/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir/chain.cpp.o"
+  "/home/loona/programming/Field_Forces/globvars.cpp" "/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir/globvars.cpp.o"
   "/home/loona/programming/Field_Forces/main.cpp" "/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir/main.cpp.o"
   "/home/loona/programming/Field_Forces/node.cpp" "/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir/node.cpp.o"
   "/home/loona/programming/Field_Forces/segment.cpp" "/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir/segment.cpp.o"

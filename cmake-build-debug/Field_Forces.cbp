@@ -88,6 +88,9 @@
 		<Unit filename="/home/loona/programming/Field_Forces/chain.h">
 			<Option target="Field_Forces"/>
 		</Unit>
+		<Unit filename="/home/loona/programming/Field_Forces/globvars.cpp">
+			<Option target="Field_Forces"/>
+		</Unit>
 		<Unit filename="/home/loona/programming/Field_Forces/globvars.h">
 			<Option target="Field_Forces"/>
 		</Unit>

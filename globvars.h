@@ -5,6 +5,8 @@
 #ifndef FIELD_FORCES_GLOBVARS_H
 #define FIELD_FORCES_GLOBVARS_H
 
-extern const int[] screenres {1920, 1080};
+extern const int screenres[];
+
+
 
 #endif //FIELD_FORCES_GLOBVARS_H

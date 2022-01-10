@@ -5,17 +5,18 @@ chain class
 how to exert forces???
 selecting outlines a node/segment
 how to reference and manage each node from
+get rid of selecting segments
 
 
 controls:
     hold r-click and not colliding with node/segment: wait until not holding and then create a node with a given mass proportional to the time held
+    hold r-click selecting a node: create a new node at the end
     l-click and colliding with node: select node
     hold l-click and colliding with node: drag node around
     l-click and colliding with a segment: select segment
     hold r-click and colliding with a segment: same functionality as before but created in the segement
     hold "+": assign a positive force to selected node. magnitude proportinal to time held
     hold "-": assign a negative force to selected node. magnitude proportional to time held
-    toggle "m": set mode. from magnetism to
     "Tab": if selecting a node, selects the next node; if current node is last, select the first node
 
 logic:
@@ -58,7 +59,7 @@ chain class:
         redraw() //kills all segments then repeatedly calls draw_segment() for all nodes
 
         delete_node() //deletes a node and redraws
-        insert_node()
+        insert_node() //inserts a node into a position
 
         mouse_is_colliding_with_node() //detects if the mouse is touching a node
         mouse_is_colliding_with_segment() //detects if the mouse is touching a segment

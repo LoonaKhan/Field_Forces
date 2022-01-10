@@ -4,7 +4,6 @@
 
 #ifndef FIELD_FORCES_NODE_H
 #define FIELD_FORCES_NODE_H
-#include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "globvars.h"
@@ -13,6 +12,7 @@ using namespace std;
 class node {
 public:
     sf::CircleShape shape;
+    sf::Color colour;
     vector<float> pos;
     vector<float> a;
     vector<float> v;

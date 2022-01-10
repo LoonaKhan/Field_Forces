@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/Field_Forces.dir/main.cpp.o CMakeFiles/Field_Forces.dir/node.cpp.o CMakeFiles/Field_Forces.dir/segment.cpp.o CMakeFiles/Field_Forces.dir/chain.cpp.o -o Field_Forces  -lsfml-graphics -lsfml-window -lsfml-system 
+/usr/bin/c++ -g CMakeFiles/Field_Forces.dir/main.cpp.o CMakeFiles/Field_Forces.dir/node.cpp.o CMakeFiles/Field_Forces.dir/segment.cpp.o CMakeFiles/Field_Forces.dir/chain.cpp.o CMakeFiles/Field_Forces.dir/globvars.cpp.o -o Field_Forces  -lsfml-graphics -lsfml-window -lsfml-system 
