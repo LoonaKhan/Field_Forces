@@ -68,3 +68,16 @@ chain class:
         select_segment() //chooses which
 
         change_magnitude() //changes the magnitude of the force for the selected node
+
+
+
+todo:
+    implement collision detection for segments
+        if within the vertices.
+    getter/setter methods for colour changing the fill colour
+    make the node move when being dragged by the mouse
+        this->a = 0; this->v =0;
+        find the movement of the mouse; move the node there
+    work on selecting nodes and inserting nodes at any index
+        mouse collision detection with segment, find the next node from that segment then add a node there
+    change force magnitudes

@@ -24,7 +24,7 @@ public:
     ~node();
 
     void accelerate();
-    void move();
+    void move(float dx=0.0f, float dy=0.0f); //move can also take parameters so i can easily a node manually
     void recolour(bool selected=false);
 
 private:

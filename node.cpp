@@ -2,6 +2,7 @@
 // Created by loona on 2022-01-09.
 //
 #include "node.h"
+#include <iostream>
 
 node::node(vector<float> pos, float mass) {
     this->pos = pos;
@@ -31,10 +32,20 @@ void node::accelerate() {
     }
 }
 
-void node::move() {
-    for (int i=0; i<pos.size(); i++){
-        this->pos[i] = this->pos[i]+this->v[i];
+void node::move(float dx, float dy) {
+    if (dx ==0.0f and dy ==0.0f){
+        for (int i = 0; i < pos.size(); i++) {
+            this->pos[i] = this->pos[i] + this->v[i];
+            //move the shape
+        }
+        this->shape.move(this->v[0], this->v[1]);
     }
+
+    else{
+        this->pos[0] += dx; this->pos[1] +=dy;
+        this->shape.move(dx, dy);
+    }
+
     if ((this->left <= 0) or (this->right >= (float)screenres[0])) this->v[0] = -this->v[0];
     if ((this->top <= 0) or (this->bottom >= (float)screenres[1])) this->v[1] = -this->v[1];
 }

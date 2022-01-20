@@ -26,6 +26,7 @@ public:
     bool mouse_is_colliding_with_node();
     bool mouse_is_colliding_with_segment();
     float select_node(int index);
+    void cycle_selected();
     //float select_segment();
     void change_magnitude();
     void draw();

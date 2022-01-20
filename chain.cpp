@@ -24,17 +24,26 @@ void chain::redraw() {
     for (int i=0; i<this->nodes.size()-1; i++){
         this->segments.push_back(draw_segment(nodes[i], nodes[i+1]));
     }
+
+    //accelerate all nodes
+    //apply velocites
+    //apply position changes
+    for (int i=0; i<this->nodes.size();i++){
+        this->nodes[i].accelerate();
+        this->nodes[i].move();
+    }
 }
 
 void chain::delete_node(int index) {}
 void chain::insert_node(vector<float> pos, float mass, int index) {
         node point(pos, mass);
-        if (this->segments.size()<=1){
+        if (this->segments.size()<=1 or true){
             this->nodes.push_back(point);
+            this->highlighted_node_index = this->nodes.size()-1;
             //this->segments = {draw_segment(this->nodes[0], this->nodes[1])};
         }
-        else nodes[index] = point;
-        this->highlighted_node_index = index;
+        //else nodes[index] = point;
+        //this->highlighted_node_index = index;
 }
 
 
@@ -57,5 +66,11 @@ bool chain::mouse_is_colliding_with_node() {
 bool chain::mouse_is_colliding_with_segment() {}
 float chain::select_node(int index) {
     this->highlighted_node_index = index;
+}
+void chain::cycle_selected() {
+    this->highlighted_node_index+=1;
+    if (this->highlighted_node_index== this->nodes.size()){
+        this->highlighted_node_index = 0;
+    }
 }
 void chain::change_magnitude() {}

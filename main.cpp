@@ -2,17 +2,31 @@
 #include <SFML/Graphics.hpp>
 #include "globvars.h"
 #include "chain.h"
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
+vector<float> get_rand(float maxx=0.0f, float minn = 0.0f){
+    srand(time(0));
+    float x = max(((float)rand()/((float)RAND_MAX/screenres[0]))-5.0f, 0.0f);
+    float y = max(((float)rand()/((float)RAND_MAX/screenres[1]))-5.0f, 0.0f);
+    if (maxx !=0.0f or minn !=0.0f){
+        x = min(max(minn, x), maxx);
+        y = min(max(minn, y), maxx);
+    }
+    return {x,y};
+}
+
 int main() {
-    sf::RenderWindow window(sf::VideoMode(screenres[0],screenres[1]), "Field Forces", sf::Style::Close | sf::Style::Resize); // creates the window
+    sf::RenderWindow window(sf::VideoMode(screenres[0],screenres[1]),
+                            "Field Forces",
+                            sf::Style::Close | sf::Style::Resize); // creates the window
     sf::Clock clock;
     float lastTime =0;
     //vector<chain> chains;
     node newnode({500.0f, 500.0f}, 5);
     newnode.colour = sf::Color{3, 161, 252};
-    //node endnode({600.0f, 800.0f}, 5);
-    //endnode.colour = sf::Color{214, 82, 49};
+
     chain c(newnode);
     c.insert_node({600.0f, 800.0f}, 5);
     c.nodes[1].colour = sf::Color{214, 82, 49};
@@ -29,23 +43,32 @@ int main() {
         float currentTime = clock.restart().asSeconds();
         float fps = 1.0f/(currentTime - lastTime);
         lastTime = currentTime;
+        window.setFramerateLimit(60);
+        cout << (int) (1.0/clock.restart().asSeconds()) <<endl;
 
-        /*if (sf::Mouse::isButtonPressed(sf::Mouse::Right)){ // if we right click
-            vector<float> mouse_pos = {(float)sf::Mouse::getPosition().x, (float)sf::Mouse::getPosition().y};
-            for (auto i : chains){
-                if (!i.mouse_is_colliding_with_node()){ // and we are not colliding with any nodes
-                    if (chains.empty()){
-                        node point(mouse_pos, 5);
-                        chain c(point);
-                        chains.push_back(c);
-                    }
-                    if (i.mouse_is_colliding_with_segment()){
-                        //get segment index and add 1 for the node index
-                    }
-                    i.insert_node(mouse_pos, 5, i.nodes.size()); // create a new node
-                }
+
+        vector<float> movement = {0.0f, 0.0f};
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) movement[1] -= 1.0f;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) movement[1] += 1.0f;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) movement[0] -= 1.0f;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) movement[0] += 1.0f;
+
+        c.nodes[c.highlighted_node_index].move(movement[0], movement[1]);
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
+            c.insert_node(get_rand(), 1.0f);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)){
+            c.cycle_selected();
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)){
+            for (int i =0; i<c.nodes.size(); i++){
+                c.nodes[i].a = get_rand(0.1f, -0.1f);
             }
-        }*/
+            //c.nodes[c.highlighted_node_index].a = {5.0f, 5.0f};
+        }
+
 
 
 
