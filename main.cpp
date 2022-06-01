@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp> // add in SFML to the repo. not just in the include dir
 #include "globvars.h"
 #include "chain.h"
 #include <cstdlib>
