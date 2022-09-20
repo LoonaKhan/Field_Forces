@@ -1,3 +1,0 @@
-/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/loona/programming/Field_Forces/cmake-build-debug/CMakeFiles/Field_Forces.dir
